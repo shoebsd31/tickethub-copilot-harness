@@ -64,8 +64,11 @@ public sealed class Event
         if (now >= StartsAt)
             return Result<Booking>.Failure(DomainErrors.Event.AlreadyStarted);
 
-        if (SeatsSold >= Capacity)
+        if (SeatsRemaining <= 0)
             return Result<Booking>.Failure(DomainErrors.Event.SoldOut);
+
+        if (quantity > SeatsRemaining)
+            return Result<Booking>.Failure(DomainErrors.Event.NotEnoughSeats);
 
         SeatsSold += quantity;
         return Result<Booking>.Success(Booking.Create(Id, customer, quantity, now));

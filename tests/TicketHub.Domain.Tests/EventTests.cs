@@ -50,6 +50,28 @@ public sealed class EventTests
     }
 
     [Fact]
+    public void Book_WhenQuantityExceedsRemainingSeats_ReturnsNotEnoughSeats()
+    {
+        var evt = WithSeats(capacity: 100, seatsSold: 98);
+
+        var result = evt.Book(Customer, quantity: 4, Now);
+
+        Assert.Equal(DomainErrors.Event.NotEnoughSeats, result.Error);
+        Assert.Equal(98, evt.SeatsSold);
+    }
+
+    [Fact]
+    public void Book_TakingExactlyTheLastSeats_Succeeds()
+    {
+        var evt = WithSeats(capacity: 100, seatsSold: 96);
+
+        var result = evt.Book(Customer, quantity: 4, Now);
+
+        Assert.True(result.IsSuccess);
+        Assert.Equal(0, evt.SeatsRemaining);
+    }
+
+    [Fact]
     public void Book_AfterEventStarted_ReturnsAlreadyStarted()
     {
         var evt = WithSeats(capacity: 100, seatsSold: 0);

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\TicketHub.Application\TicketHub.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- One source of truth for schema + demo data: /data/seed.sql -->
+    <EmbeddedResource Include="..\..\data\seed.sql" LogicalName="TicketHub.seed.sql" />
+  </ItemGroup>
+</Project>

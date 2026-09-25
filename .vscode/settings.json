@@ -1,0 +1,16 @@
+{
+  // Act 3: safe, read-only commands run without asking; everything else needs approval.
+  "chat.tools.terminal.autoApprove": {
+    "dotnet build": true,
+    "dotnet test": true,
+    "git status": true,
+    "git diff": true,
+    "rm": false,
+    "git push": false,
+    "git reset": false
+  },
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true
+  }
+}

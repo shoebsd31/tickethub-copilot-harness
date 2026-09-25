@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "tickethub-db": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["sqlitemcp@1.0.4", "--yes"],
+      "env": {
+        "SQLITE_DB_PATH": "${workspaceFolder}/data/tickets.db"
+      }
+    }
+  }
+}

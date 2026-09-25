@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Use cases. Depends only on the domain; no packages. -->
+  <ItemGroup>
+    <ProjectReference Include="..\TicketHub.Domain\TicketHub.Domain.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+# TicketHub requests. In VS Code, install the "REST Client" extension and click "Send Request".
+@baseUrl = http://localhost:5080
+@operaGala = d3993281-50a8-584b-97cd-bebc4758626a
+
+### List all events
+GET {{baseUrl}}/api/events
+
+### Get one event (Opera Gala: 1 seat left)
+GET {{baseUrl}}/api/events/{{operaGala}}
+
+### Book 4 tickets for the Opera Gala
+POST {{baseUrl}}/api/events/{{operaGala}}/bookings
+Content-Type: application/json
+
+{
+  "customerEmail": "demo.customer@example.com",
+  "quantity": 4
+}
+
+### Health check
+GET {{baseUrl}}/health

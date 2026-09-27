@@ -31,7 +31,3 @@ Errors are returned as RFC 9457 problem details with a stable `code`, e.g. `Even
 
 The API uses SQLite at `data/tickets.db`, created from `data/seed.sql`.
 To restore the demo data: `dotnet run --project src/TicketHub.Api -- --reset-db`.
-
-## Resetting the whole demo
-
-`./scripts/reset-demo.sh` (macOS/Linux) or `./scripts/reset-demo.ps1` (Windows) restores the `demo-start` tag.
